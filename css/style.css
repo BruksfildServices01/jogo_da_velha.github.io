@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;}
+
+    #game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+#board {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+#scoreboard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#human-score, #ai-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#counter {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cell {
+    background: #e0e0e0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.cell:hover {
+    background: #d1d1d1;
+}
+
+.cell:empty::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.cell:not(:empty)::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+.cell.x::before {
+    content: 'X';
+    color: #f44336;
+}
+
+.cell.o::before {
+    content: 'O';
+    color: #2196f3;
+}
