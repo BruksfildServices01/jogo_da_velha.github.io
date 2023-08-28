@@ -39,8 +39,6 @@ Este jogo da velha não é apenas um simples passatempo, mas também uma demonst
 ## Iniciar o Jogo :rocket:
 Para começar a jogar, basta abrir o arquivo HTML em qualquer navegador moderno e desfrutar do desafio de competir contra a máquina!
 
-[Visite o Google]([https://www.google.com](https://bruksfildservices01.github.io/jogo_da_velha.github.io/)https://bruksfildservices01.github.io/jogo_da_velha.github.io/ "seja o site!!!")
-
-
+[Visite o site do jogo](https://bruksfildservices01.github.io/jogo_da_velha.github.io/ "Acesse o site!")
 
  
