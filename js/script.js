@@ -1,7 +1,7 @@
 let board = Array(9).fill(null);
 let human = 'X', ai = 'O', EMPTY = null;
 let currentPlayer = human;
-let humanWins = 0, aiWins = 0, gamesPlayed = 0;
+let humanWins = 0, aiWins = 0, ties = 0, gamesPlayed = 0;
 
 let cells = Array.from(document.querySelectorAll('#board .cell'));
 cells.forEach(cell => {
@@ -12,6 +12,17 @@ let scores = {
     [human]: -1,
     [ai]: 1,
     'tie': 0
+};
+
+function resetBoard(initialPlayer) {
+    board = Array(9).fill(null);
+    currentPlayer = initialPlayer;
+    cells.forEach(cell => cell.textContent = '');
+    cells.forEach(cell => cell.classList.remove(human, ai));
+
+    if (currentPlayer === ai) {
+        makeAIMove();
+    }
 }
 
 function checkWin(board) {
@@ -49,8 +60,9 @@ function updateScores(winner) {
         aiWins++;
         document.getElementById('ai-wins').innerText = aiWins;
     } else if (winner === 'tie') {
-        // Lidando com empates aqui.
-        // Você pode querer adicionar um contador para empates, se desejar.
+        ties++;
+        document.getElementById('ties').innerText = ties;
+        console.log("empate")
     }
 }
 
@@ -64,14 +76,14 @@ function click(e) {
         let result = checkWin(board);
         if(result) {
             updateScores(result);
-            board = Array(9).fill(null);
-            cells.forEach(cell => cell.textContent = '');
-            cells.forEach(cell => cell.classList.remove(human, ai));
+            let nextPlayer = (currentPlayer === human) ? ai : human;  // Determine o próximo jogador
+            resetBoard(nextPlayer);  // Reinicie o tabuleiro
         }
         // Se não há um vencedor, permita que a IA jogue.
         if(!result && currentPlayer === ai) makeAIMove();
     }
 }
+
 
 function makeAIMove() {
     let bestScore = -Infinity;
@@ -132,3 +144,5 @@ function minimax(board, depth, isMaximizingPlayer) {
         return bestScore;
     }
 }
+
+resetBoard(human);

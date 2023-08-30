@@ -1,0 +1,46 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    padding: 40px;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.close:hover {
+    color: red;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+.rules-section {
+    margin-bottom: 20px;
+}
+
+ol {
+    margin-top: 10px;
+}
